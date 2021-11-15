@@ -10,3 +10,10 @@ print("------------")
 
 for j in gdp:
     print(j)
+
+
+plt.plot(years, gdp, color='green', marker='o', linestyle='solid')
+plt.title("Normal GDP")
+
+plt.ylabel("Billions of $")
+plt.show()
