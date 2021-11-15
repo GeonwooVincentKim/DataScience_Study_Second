@@ -13,4 +13,8 @@ plt.ticklabel_format(useOffset=False)
 plt.axis([2016.6, 2018.5, 499, 506])
 plt.title("Look at the 'Huge' Increase!!")
 
+# Normal Graph
+plt.axis([2016.5, 2018.5, 0, 550])
+plt.title("Not So Huge Anymore")
+
 plt.show()
