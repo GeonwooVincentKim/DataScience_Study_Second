@@ -121,3 +121,13 @@ def vector_mean(vectors: List[Vector]) -> Vector:
 
 # assert vector_mean([[1, 2], [3, 4], [5, 6]]) == [3, 4]
 print("Vector-Mean is True?? -> {0}".format(vector_mean([[1, 2], [3, 4], [5, 6]]) == [3, 4]))
+
+
+def dot(v: Vector, w: Vector) -> Vector:
+    """v_1 * w_1 + ... + v_n * w_n"""
+    assert len(v) == len(w), "vectors must be same length"
+    return sum(v_i * w_i for v_i, w_i in zip(v, w))
+
+
+# assert dot([1, 2, 3], [4, 5, 6]) == 32  # 1 * 4 + 2 * 5 + 3 * 6
+print("v_1 * w_1 + ... + v_n * w_n -> {0}".format(dot([1, 2, 3], [4, 5, 6]) == 32 ))   # 1 * 4 + 2 * 5 + 3 * 6
