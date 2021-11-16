@@ -57,3 +57,12 @@ def vector_sum(vectors: List[Vector]) -> Vector:
 
 # assert vector_sum([[1, 2], [3, 4], [5, 6], [7, 8]]) == [16, 20]
 print("Vector-Sum is True?? -> {0}".format(vector_sum([[1, 2], [3, 4], [5, 6], [7, 8]]) == [16, 20]))
+
+
+def scalar_multiply(c: float, v: Vector) -> Vector:
+    """Multiply Every elements with `c`"""
+    return [c * v_i for v_i in v]
+
+
+# assert scalar_multiply(2, [1, 2, 3]) == [2, 4, 6]
+print("Scalar-Multiply is True?? -> {0}".format(scalar_multiply(2, [1, 2, 3]) == [2, 4, 6]))
