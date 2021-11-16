@@ -26,6 +26,34 @@ num_friends = [
 ]
 
 friend_counts = Counter(num_friends)
-
 for i in friend_counts:
     print(i)
+    
+print("============================================")
+
+num_points = len(num_friends)
+print("Num Friends Length : {0}".format(num_points))
+
+largest_value = max(num_friends)
+smallest_value = min(num_friends)
+print("Largest Value : {0}\nSmallest Value : {1}".format(largest_value, smallest_value))
+
+sorted_values = sorted(num_friends)
+smallest_value = sorted_values[0]
+second_smallest_value = sorted_values[1]
+second_largest_value = sorted_values[-2]
+print("Sorted Values : {0}\nSmallest Value (Sorted Num_friends) : {1}\n"
+      "Secondly Smallest value : {2}\nSecondly Largest value : {3}"
+      .format(sorted_values, smallest_value, second_smallest_value, second_largest_value))
+
+xs = range(101)
+ys = [friend_counts[x] for x in xs]
+
+plt.bar(xs, ys)
+plt.axis([0, 101, 0, 25])
+
+plt.title("Histogram of Friend Counts")
+plt.xlabel("# of friends")
+plt.ylabel("# of people")
+
+plt.show()
