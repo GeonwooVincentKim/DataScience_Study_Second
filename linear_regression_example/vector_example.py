@@ -1,3 +1,4 @@
+import math
 from typing import List
 
 Vector = List[float]
@@ -64,6 +65,32 @@ print("---------------------------------------")
     
     sum(a + b) => [9, 15]
     avg(a, b) => [3, 4]
+    
+    
+    6. dot (a_n * b_n)
+    
+    a = [1, 2, 3]
+    b = [4, 5, 6]
+    
+    => [1 * 4 + 2 * 5 + 3 * 6] ==> [4 + 10 + 18] ==> 32
+    
+    
+    7. sum_of_square (a^2)
+    
+    a = [1, 2, 3]
+    => [1^2, 2^2, 3^2] ==> [1 + 4 + 9] ==> 14
+
+
+    8. Magnitude (Square-Root) (a^2 + b^2 = c^2)
+    
+    a = 3
+    b = 4
+    
+    => [3^2, 4^2] == 5^2 => [9 + 16] == 5^2 ==> 25 
+    
+    
+    9. squared_distane ((a_n)^2 - (b_n)^2)
+    10. distance ((a_1)^2 - (b_1)^2) + ((a_2)^2) - (b_2)^2)
 """
 
 
@@ -131,3 +158,36 @@ def dot(v: Vector, w: Vector) -> Vector:
 
 # assert dot([1, 2, 3], [4, 5, 6]) == 32  # 1 * 4 + 2 * 5 + 3 * 6
 print("v_1 * w_1 + ... + v_n * w_n -> {0}".format(dot([1, 2, 3], [4, 5, 6]) == 32 ))   # 1 * 4 + 2 * 5 + 3 * 6
+
+
+def sum_of_squares(v: Vector) -> float:
+    """v_1 * v_1 + ... + v_n * v_n"""
+    return dot(v, v)
+    
+
+# assert sum_of_squares([1, 2, 3]) == 14  # 1 * 1 + 2 * 2 + 3 * 3
+print("v_1 * v_1 + ... + v_n * w_n -> {0}".format(sum_of_squares([1, 2, 3])))
+
+
+def magnitude(v: Vector) -> float:
+    """Return the size of `v`"""
+    return math.sqrt(sum_of_squares(v))    # math.sqrt is the function that calculates square-root
+
+
+# assert magnitude([3, 4]) == 5
+print("Magnitude is True?? -> {0}".format(magnitude([3, 4]) == 5))
+
+
+def squared_distance(v: Vector, w: Vector) -> float:
+    """(v_1 - w_1) ** 2 + ... + (v_n - w_n) ** 2"""
+    return sum_of_squares(subtract(v, w))
+
+
+def distance(v: Vector, w: Vector) -> float:
+    """Calculate distance between vector `v` and vector `w`"""
+    return math.sqrt(squared_distance(v, w))
+
+
+def distance(v: Vector, w: Vector) -> float:
+    """Calculate distance between vector `v` and vector `w`"""
+    return magnitude(subtract(v, w))
