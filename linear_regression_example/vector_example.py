@@ -22,6 +22,51 @@ for i in grades:
     
 print("---------------------------------------")
 
+"""[Vector Calculation Method]
+    
+    1. Add (a + b)
+    a = [1, 2, 3]
+    b = [4, 5, 6]
+    => [5, 7, 9]
+    
+    
+    2. Subtract (a - b)
+    a = [5, 7, 9]
+    b = [4, 5, 6]
+    => [1, 2, 3]
+    
+    
+    3. Sum ((a += original_list[i]) + (b += original_list[j]))
+    original_list = [1, 2], [3, 4], [5, 6], [7, 8]
+    
+    a = original_list[i] 
+    --> [1 + 3 + 5 + 7]
+    b = original_list[j]
+    --> [2 + 4 + 6 + 8]
+    
+    sum(a + b) => [16, 20]
+    
+    
+    4. Scalar Multiply (c * a)
+    c = 2
+    
+    a = [1, 2, 3]
+    => [2 * 1, 2 * 2, 2 * 3] ==> [2, 4, 6] 
+    
+    
+    5. mean (((a += original_list[i]) / original_list[i].length) + (b += original_list[j]) / original_list[j].length))
+    original_list = [1, 2], [3, 4], [5, 6]
+    
+    a = original_list[i]
+    --> [1 + 3 + 5]
+    b = original_list[j]
+    --> [2 + 4 + 6]
+    
+    sum(a + b) => [9, 15]
+    avg(a, b) => [3, 4]
+"""
+
+
 def add(v: Vector, w: Vector) -> Vector:
     """Plus Each Elements"""
     assert len(v) == len(w), "vectors must be the same length"
@@ -66,3 +111,13 @@ def scalar_multiply(c: float, v: Vector) -> Vector:
 
 # assert scalar_multiply(2, [1, 2, 3]) == [2, 4, 6]
 print("Scalar-Multiply is True?? -> {0}".format(scalar_multiply(2, [1, 2, 3]) == [2, 4, 6]))
+
+
+def vector_mean(vectors: List[Vector]) -> Vector:
+    """Calculate each elements average"""
+    n = len(vectors)
+    return scalar_multiply(1/n, vector_sum(vectors))
+
+
+# assert vector_mean([[1, 2], [3, 4], [5, 6]]) == [3, 4]
+print("Vector-Mean is True?? -> {0}".format(vector_mean([[1, 2], [3, 4], [5, 6]]) == [3, 4]))
