@@ -108,6 +108,20 @@ friendships_pairs = [
     (4, 5), (5, 6), (5, 7), (6, 8), (7, 8), (8, 9)
 ]
 
+friend_matrix = [[0, 1, 1, 0, 0, 0, 0, 0, 0, 0],  # user 0
+                 [1, 0, 1, 1, 0, 0, 0, 0, 0, 0],  # user 1
+                 [1, 1, 0, 1, 0, 0, 0, 0, 0, 0],  # user 2
+                 [0, 1, 1, 0, 1, 0, 0, 0, 0, 0],  # user 3
+                 [0, 0, 0, 1, 0, 1, 0, 0, 0, 0],  # user 4
+                 [0, 0, 0, 0, 1, 0, 1, 1, 0, 0],  # user 5
+                 [0, 0, 0, 0, 0, 1, 0, 0, 1, 0],  # user 6
+                 [0, 0, 0, 0, 0, 1, 0, 0, 1, 0],  # user 7
+                 [0, 0, 0, 0, 0, 0, 1, 1, 0, 1],  # user 8
+                 [0, 0, 0, 0, 0, 0, 0, 0, 1, 0]]  # user 9
+
+print(friend_matrix[0][2] == 1, "-> 0 and 2 are friends")
+print(friend_matrix[0][8] == 0, "0 and 8 are not friends")
+
 friends_of_five = [
     i
     for i, is_friend in enumerate(
@@ -118,7 +132,8 @@ friends_of_five = [
         #     [0, 0, 0, 1, 0],
         #     [0, 0, 0, 0, 1]
         # ]
-        identify_matrix(5)
+        # identify_matrix(5)
+        friend_matrix[5]
     )
     if is_friend
 ]
