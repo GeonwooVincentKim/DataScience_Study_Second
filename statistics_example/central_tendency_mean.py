@@ -43,3 +43,8 @@ def median(v: List[float]):
 def median(v: List[float]):
     """Calculate Median-Number of `v`"""
     return _median_even(v) if len(v) % 2 == 0 else _median_odd(v)
+
+
+def quantile(xs: List[float], p: float):
+    p_index = int(p * len(xs))
+    return sorted(xs)[p_index]
