@@ -1,16 +1,18 @@
+import collections
 import os
 import sys
 import math
+
+from matplotlib import pyplot as plt
 
 # from statistics_example.central_tendency_mean import *
 from central_tendency_mean import *
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 
-
 from typing import List
 from linear_regression_example.matrix_example import *
 from linear_regression_example.vector_example import dot, sum_of_squares
-from friendcount_histogram import num_friends
+from friendcount_histogram import *
 
 
 def data_range(xs: List[float]):
@@ -81,4 +83,58 @@ def covariance(xs: List[float], ys: List[float]):
     print(len(xs) == len(ys), "- xs and ys must have same number of elements")
     return dot(de_mean(xs), de_mean(ys)) / (len(xs) - 1)
 
+
 print("covariance ->", 22.42 < covariance(num_friends, daily_minutes) < 22.43)
+print("covariance (divide by 60) ->", 22.42 / 60 < covariance(num_friends, daily_minutes) < 22.43 / 60)
+
+
+def correlation(xs: List[float], ys: List[float]):
+    stdev_x = standard_deviation(xs)
+    stdev_y = standard_deviation(ys)
+    
+    if(stdev_x > 0 and  stdev_y > 0):
+        return covariance(xs, ys) / stdev_x / stdev_y
+    else: 
+        return 0
+    
+
+# assert 0.24 < correlation(num_friends, daily_minutes) < 0.25
+# assert 0.24 < correlation(num_friends, daily_hours) < 0.25
+outlier = num_friends.index(100) # index of outlier
+
+num_friends_good = [
+    x 
+    for i, x in enumerate(num_friends) 
+    if i != outlier
+]
+
+daily_minutes_good = [
+    x 
+    for i, x in enumerate(daily_minutes) 
+    if i != outlier
+]
+
+
+if __name__ == "__main__":
+    print("num_points", len(num_friends))
+    print("largest value", max(num_friends))
+    print("smallest value", min(num_friends))
+    print("second_smallest_value", sorted_values[1])
+    print("second_largest_value", sorted_values[-2]) 
+    print("mean(num_friends)", mean(num_friends))
+    print("median(num_friends)", median(num_friends))
+    print("quantile(num_friends, 0.10)", quantile(num_friends, 0.10))
+    print("quantile(num_friends, 0.25)", quantile(num_friends, 0.25))
+    print("quantile(num_friends, 0.75)", quantile(num_friends, 0.75))
+    print("quantile(num_friends, 0.90)", quantile(num_friends, 0.90))
+    print("mode(num_friends)", mode(num_friends))
+    print("data_range(num_friends)", data_range(num_friends))
+    print("variance(num_friends)", variance(num_friends))
+    print("standard_deviation(num_friends)", standard_deviation(num_friends))
+    print("interquartile_range(num_friends)", interquartile_range(num_friends))
+    print("covariance(num_friends, daily_minutes)", covariance(num_friends, daily_minutes))
+    print("correlation(num_friends, daily_minutes)", correlation(num_friends, daily_minutes))
+    print("correlation(num_friends_good, daily_minutes_good)", correlation(num_friends_good, daily_minutes_good))
+    
+    plt.scatter(num_friends_good, daily_minutes_good)
+    plt.show()
