@@ -1,3 +1,10 @@
+import os
+import sys
+
+from central_tendency_mean import mean
+sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+
+
 from collections import Counter
 import matplotlib.pyplot as plt
 
@@ -25,6 +32,7 @@ num_friends = [
     1, 1, 1, 1
 ]
 
+# Add non-duplicated data into friend_counts
 friend_counts = Counter(num_friends)
 for i in friend_counts:
     print(i)
@@ -46,6 +54,8 @@ print("Sorted Values : {0}\nSmallest Value (Sorted Num_friends) : {1}\n"
       "Secondly Smallest value : {2}\nSecondly Largest value : {3}"
       .format(sorted_values, smallest_value, second_smallest_value, second_largest_value))
 
+mean(num_friends)
+
 xs = range(101)
 ys = [friend_counts[x] for x in xs]
 
@@ -55,5 +65,6 @@ plt.axis([0, 101, 0, 25])
 plt.title("Histogram of Friend Counts")
 plt.xlabel("# of friends")
 plt.ylabel("# of people")
+plt.subplot()
 
 plt.show()
