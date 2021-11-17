@@ -54,10 +54,17 @@ print("Sorted Values : {0}\nSmallest Value (Sorted Num_friends) : {1}\n"
       "Secondly Smallest value : {2}\nSecondly Largest value : {3}"
       .format(sorted_values, smallest_value, second_smallest_value, second_largest_value))
 
-print(mean(num_friends))
-print(median([1, 10, 2, 9, 5])== 5)
-print(median([1, 9, 2, 10]) == (2 + 9) / 2)
-print(median(num_friends))
+print("Mean --> {0}".format(mean(num_friends)))
+print("Median Check Odd : {0}".format(median([1, 10, 2, 9, 5])== 5))
+print("Median Check Even : {0}".format(median([1, 9, 2, 10]) == (2 + 9) / 2))
+print("Median check odd or even{0}".format(median(num_friends)))
+
+print("Quantile -> {0}".format(quantile(num_friends, 0.10) == 1))
+print("Quantile -> {0}".format(quantile(num_friends, 0.25) == 3))
+print("Quantile -> {0}".format(quantile(num_friends, 0.75) == 9))
+print("Quantile -> {0}".format(quantile(num_friends, 0.90) == 13))
+
+print("Mode -> {0}".format(set(mode(num_friends)) == {1, 6}))
 
 xs = range(101)
 ys = [friend_counts[x] for x in xs]

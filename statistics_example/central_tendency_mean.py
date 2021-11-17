@@ -1,3 +1,4 @@
+from collections import Counter
 from typing import List
 
 
@@ -45,6 +46,23 @@ def median(v: List[float]):
     return _median_even(v) if len(v) % 2 == 0 else _median_odd(v)
 
 
+"""
 def quantile(xs: List[float], p: float):
     p_index = int(p * len(xs))
     return sorted(xs)[p_index]
+"""
+
+def quantile(xs: List[float], p: float):
+    p_index = int(p * len(xs))
+    return sorted(xs)[p_index]
+
+
+"""
+"""
+
+def mode(x: List[float]):
+    counts = Counter(x)
+    max_count = max(counts.values())
+    
+    return [x_i for x_i, count in counts.items()
+            if count == max_count]
