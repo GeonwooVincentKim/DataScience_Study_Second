@@ -1,7 +1,7 @@
 import os
 import sys
 
-from central_tendency_mean import mean
+from central_tendency_mean import *
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 
 
@@ -54,7 +54,10 @@ print("Sorted Values : {0}\nSmallest Value (Sorted Num_friends) : {1}\n"
       "Secondly Smallest value : {2}\nSecondly Largest value : {3}"
       .format(sorted_values, smallest_value, second_smallest_value, second_largest_value))
 
-mean(num_friends)
+print(mean(num_friends))
+print(median([1, 10, 2, 9, 5])== 5)
+print(median([1, 9, 2, 10]) == (2 + 9) / 2)
+print(median(num_friends))
 
 xs = range(101)
 ys = [friend_counts[x] for x in xs]
