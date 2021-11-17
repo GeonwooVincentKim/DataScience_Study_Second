@@ -34,10 +34,12 @@ def _median_even(xs: List[float]):
     hi_midPoint = len(xs) // 2
     return (sorted_xs[hi_midPoint - 1] + sorted_xs[hi_midPoint]) / 2
 
+
 """
 def median(v: List[float]):
     return _median_even(v) if len(v) % 2 == 0 else _median_odd(v)
 """
+
 def median(v: List[float]):
     """Calculate Median-Number of `v`"""
     return _median_even(v) if len(v) % 2 == 0 else _median_odd(v)
