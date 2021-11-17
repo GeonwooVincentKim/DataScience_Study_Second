@@ -96,10 +96,8 @@ def correlation(xs: List[float], ys: List[float]):
         return covariance(xs, ys) / stdev_x / stdev_y
     else: 
         return 0
-    
 
-# assert 0.24 < correlation(num_friends, daily_minutes) < 0.25
-# assert 0.24 < correlation(num_friends, daily_hours) < 0.25
+    
 outlier = num_friends.index(100) # index of outlier
 
 num_friends_good = [
@@ -114,27 +112,5 @@ daily_minutes_good = [
     if i != outlier
 ]
 
-
-if __name__ == "__main__":
-    print("num_points", len(num_friends))
-    print("largest value", max(num_friends))
-    print("smallest value", min(num_friends))
-    print("second_smallest_value", sorted_values[1])
-    print("second_largest_value", sorted_values[-2]) 
-    print("mean(num_friends)", mean(num_friends))
-    print("median(num_friends)", median(num_friends))
-    print("quantile(num_friends, 0.10)", quantile(num_friends, 0.10))
-    print("quantile(num_friends, 0.25)", quantile(num_friends, 0.25))
-    print("quantile(num_friends, 0.75)", quantile(num_friends, 0.75))
-    print("quantile(num_friends, 0.90)", quantile(num_friends, 0.90))
-    print("mode(num_friends)", mode(num_friends))
-    print("data_range(num_friends)", data_range(num_friends))
-    print("variance(num_friends)", variance(num_friends))
-    print("standard_deviation(num_friends)", standard_deviation(num_friends))
-    print("interquartile_range(num_friends)", interquartile_range(num_friends))
-    print("covariance(num_friends, daily_minutes)", covariance(num_friends, daily_minutes))
-    print("correlation(num_friends, daily_minutes)", correlation(num_friends, daily_minutes))
-    print("correlation(num_friends_good, daily_minutes_good)", correlation(num_friends_good, daily_minutes_good))
-    
-    plt.scatter(num_friends_good, daily_minutes_good)
-    plt.show()
+plt.scatter(num_friends_good, daily_minutes_good)
+plt.show()
