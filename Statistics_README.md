@@ -38,16 +38,14 @@ Standard Deviation -> √168.75 = 12.99
 ### Correlation-Coefficient
 - `Covariance` Value / (`A` Standard Deviation) * (`B` Standard Deviation)
 
-### Correlation-Coefficient
-- 
 
-## Detail Information (Korean)
+# Detail Information (Korean)
 
-### Blog Post
+## Blog Post
 - (`Handle Outlier`)[https://m.blog.naver.com/lingua/221909198917]
 - (`Delete Outlier`)[https://m.blog.naver.com/syw0729/221543078133]
 - (`Standard-Deviation, Covariance, and Correlation-Coefficient`)[https://todays-review.tistory.com/81]
 
-### Wiki-Doc
+## Wiki-Doc
 - (`Handle Missing-Value`)[https://wikidocs.net/33923]
 - (`Print Outlier value`)[https://wikidocs.net/33920]
