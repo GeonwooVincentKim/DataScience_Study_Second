@@ -13,6 +13,7 @@ ReadMe file to learn about Statistics how to apply it into the Python Code
 ### Blog Post
 - (`Handle Outlier`)[https://m.blog.naver.com/lingua/221909198917]
 - (`Delete Outlier`)[https://m.blog.naver.com/syw0729/221543078133]
+- (`Standard-Deviation, Covariance, and Correlation-Coefficient`)[https://todays-review.tistory.com/81]
 
 ### Wiki-Doc
 - (`Handle Missing-Value`)[https://wikidocs.net/33923]
