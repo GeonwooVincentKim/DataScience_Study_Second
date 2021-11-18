@@ -33,9 +33,10 @@ Standard Deviation -> √168.75 = 12.99
 
 ### Covariance
 - Compare Original values and get the `Averaged Number`, and then plus its together
+- Multiply several `Variance` Number
 
-```
-```
+### Correlation-Coefficient
+- `Covariance` Value / (`A` Standard Deviation) * (`B` Standard Deviation)
 
 ### Correlation-Coefficient
 - 
