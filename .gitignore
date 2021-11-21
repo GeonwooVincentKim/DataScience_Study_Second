@@ -1,5 +1,6 @@
 # Ignore virtual-enviornment not to duplicate when pull from Git Repository
 .data_graph
+.data_science_example_2
 
 # Ignore Pycache
 __pycache__/*
