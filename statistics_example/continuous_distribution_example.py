@@ -119,7 +119,8 @@ def binomial_histogram(p: float, n: int, num_points: int):
     plt.show()
 
 
-binomial_histogram(0.2, 120, 80)
+# binomial_histogram(0.2, 120, 80)
+binomial_histogram(0.75, 100, 10000)
 
 
 if __name__ == "__main__":
