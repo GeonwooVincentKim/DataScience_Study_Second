@@ -4,6 +4,7 @@ sys.path.append(os.path.join(os.path.dirname(os.path.join(os.path.dirname(__file
 
 from typing import Tuple
 import math
+from matplotlib import pyplot as plt
 
 from statistics_example.continuous_distribution_example import inverse_normal_cdf, normal_cdf
 
@@ -65,3 +66,30 @@ def normal_lower_bound(probability: float, mu: float=0, sigma: float=1):
     """
     return inverse_normal_cdf(1 - probability, mu, sigma)
 
+
+def normal_two_sided_bounds(probability: float, mu:float = 0, sigma: float=1):
+    """
+        Include input probability value, and
+        returns a Symmetrical-Interval around the mean(average)
+    """
+    tail_probability = (1 - probability) / 2
+    
+    upper_bound = normal_lower_bound(tail_probability, mu, sigma)
+    lower_bound = normal_upper_bound(tail_probability, mu, sigma)
+    print("Upper Bound Value -> {0}\nLower Bound Value -> {1}".format(upper_bound, lower_bound))
+
+    return lower_bound, upper_bound
+
+
+print("\n---------------------\n")
+# Flip the coins 1000 times and the average equals to 500 (1000 * 0.5 = 500)
+mu_0, sigma_0 = normal_approximation_to_binomial(1000, 0.5)
+print("Mu_0 -> {0}\nsigma_0 -> {1}".format(mu_0, sigma_0))
+
+# p = 0.5, and the interval of `significance-level` are 5%. 
+lo, hi = normal_two_sided_bounds(0.95, mu_0, sigma_0)
+print("LO -> {0}\nHI -> {1}".format(lo, hi))
+
+
+plt.scatter(lo, hi)
+plt.show()
