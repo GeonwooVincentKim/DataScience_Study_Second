@@ -90,6 +90,21 @@ print("Mu_0 -> {0}\nsigma_0 -> {1}".format(mu_0, sigma_0))
 lo, hi = normal_two_sided_bounds(0.95, mu_0, sigma_0)
 print("LO -> {0}\nHI -> {1}".format(lo, hi))
 
+# (469, 531)
+lower_bound, upper_bound = normal_two_sided_bounds(0.95, mu_0, sigma_0)
+print("Lower Bound -> {0}\nUpper-Bound -> {1}".format(lower_bound, upper_bound))
 
-plt.scatter(lo, hi)
+# p = 0.5, and the interval of `significance-level` are 5%.
+lo, hi = normal_two_sided_bounds(0.95, mu_0, sigma_0)
+print("LO -> {0}\nHI -> {1}".format(lo, hi))
+
+# Standard Deviation and Actual-Mean when the `p = 0.55`
+mu_1, sigma_1 = normal_approximation_to_binomial(1000, 0.55)
+print("Mu_1 -> {0}\nsigma_1 -> {1}".format(mu_1, sigma_1))
+
+type_2_probability = normal_probability_between(lo, hi, mu_1, sigma_1)
+power = 1 - type_2_probability
+print("Type 2 Probability -> {0}\nPower -> {1}".format(type_2_probability, power))
+
+plt.scatter(lower_bound, upper_bound)
 plt.show()
