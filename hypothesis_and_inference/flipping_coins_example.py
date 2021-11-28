@@ -4,6 +4,7 @@ sys.path.append(os.path.join(os.path.dirname(os.path.join(os.path.dirname(__file
 
 from typing import Tuple
 import math
+import random
 from matplotlib import pyplot as plt
 
 from statistics_example.continuous_distribution_example import inverse_normal_cdf, normal_cdf
@@ -128,3 +129,22 @@ print("Normal Probability Between -> {0}".format(normal_probability_between(529.
 
 plt.bar(mu_0, sigma_0)
 plt.show()
+
+
+extreme_value_count = 0
+for _ in range(1000):
+    num_heads = sum(1 if random.random() < 0.5 else 0
+                    for _ in range(1000))
+    
+    if num_heads >= 530 or num_heads <= 470:
+        extreme_value_count += 1
+    
+print(59 < extreme_value_count < 65, f"{extreme_value_count}")
+print("Two Sided value (after compare extreme-value-count) -> {0}".format(two_sided_p_value(531.5, mu_0, sigma_0)))
+
+upper_p_value = normal_probability_above
+lower_p_value = normal_probability_below
+
+print("Upper `P` Value -> {0}".format(upper_p_value(524.5, mu_0, sigma_0)))  # 0.061
+print("Upper `P` Value -> {0}".format(upper_p_value(526.5, mu_0, sigma_0)))  # 0.047
+
