@@ -108,3 +108,23 @@ print("Type 2 Probability -> {0}\nPower -> {1}".format(type_2_probability, power
 
 plt.scatter(lower_bound, upper_bound)
 plt.show()
+
+
+def two_sided_p_value(x: float, mu: float=0, sigma: float=1):
+    """
+        What is the Probability of Extreme-Value like `x` from a 
+        `normal-distribution` that follows `mu(eval)` and `sigma(standard-deviation)`?
+    """
+    if x >= mu:
+        return 2 * normal_probability_above(x, mu, sigma)    
+    else:
+        return 2 * normal_probability_below(x, mu, sigma)
+
+
+two_sided_p_value(529.5, mu_0, sigma_0)
+print("Two-Sided P-Value -> {0}".format(two_sided_p_value(529.5, mu_0, sigma_0)))
+print("Normal Probability Between (Natural-Number) -> {0}".format(normal_probability_between(530, 531, mu_0, sigma_0)))
+print("Normal Probability Between -> {0}".format(normal_probability_between(529.5, 530.5, mu_0, sigma_0)))
+
+plt.bar(mu_0, sigma_0)
+plt.show()
