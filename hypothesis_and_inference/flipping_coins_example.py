@@ -148,3 +148,11 @@ lower_p_value = normal_probability_below
 print("Upper `P` Value -> {0}".format(upper_p_value(524.5, mu_0, sigma_0)))  # 0.061
 print("Upper `P` Value -> {0}".format(upper_p_value(526.5, mu_0, sigma_0)))  # 0.047
 
+p_hat = 525 / 1000
+mu = p_hat
+print("MU (p-hat) -> {0}".format(mu))
+
+sigma = math.sqrt(p_hat * (1 - p_hat) / 1000)
+print("Sigma -> {0}".format(sigma))
+
+print("Normal Two Sided Bounds -> {0}".format(normal_two_sided_bounds(0.95, mu, sigma)))
