@@ -35,8 +35,8 @@ num_friends = [
 # Add non-duplicated data into friend_counts
 friend_counts = Counter(num_friends)
 print(friend_counts)
-for i in friend_counts:
-    print(i)
+# for i in friend_counts:
+#     print(i)
     
 print("============================================")
 
@@ -69,6 +69,7 @@ print("Mode -> {0}".format(set(mode(num_friends)) == {1, 6}))
 
 xs = range(101)
 ys = [friend_counts[x] for x in xs]
+print("sdfsdf- > {0}".format(ys))
 
 plt.bar(xs, ys)
 plt.axis([0, 101, 0, 25])
@@ -79,3 +80,23 @@ plt.ylabel("# of people")
 plt.subplot()
 
 plt.show()
+
+# new_num_friends = [1, 3, 5, 5, 11, 100, 233]
+# new_xs = range(len(new_num_friends))
+# print(new_xs)
+# new_friend_counts = Counter(num_friends)
+# print(new_friend_counts)
+# new_ys = [new_friend_counts[a] for a in new_xs]
+
+# print(new_ys)
+
+
+new_num_friends = [1,6,2,100]
+new_xs = range(len(new_num_friends))
+print(new_xs)
+new_friend_counts = Counter(new_num_friends)
+new_ys = new_friend_counts.values()
+
+for key in new_friend_counts.keys():
+    print(key, ": ", new_num_friends[key])
+    
