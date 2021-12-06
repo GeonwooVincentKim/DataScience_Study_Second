@@ -34,6 +34,7 @@ num_friends = [
 
 # Add non-duplicated data into friend_counts
 friend_counts = Counter(num_friends)
+print(friend_counts)
 for i in friend_counts:
     print(i)
     
